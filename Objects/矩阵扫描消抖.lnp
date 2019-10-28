@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\矩阵扫描和消抖.obj" 
+TO ".\Objects\矩阵扫描消抖" 
+PRINT(".\Listings\矩阵扫描消抖.m51") RAMSIZE(256) 

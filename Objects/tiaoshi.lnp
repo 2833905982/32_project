@@ -1,0 +1,3 @@
+".\Objects\tiaoshi.obj" 
+TO ".\Objects\tiaoshi" 
+PRINT(".\Listings\tiaoshi.m51") RAMSIZE(256) 

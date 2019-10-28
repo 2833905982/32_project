@@ -1,0 +1,103 @@
+C51 COMPILER V9.54   ______________                                                        01/18/2019 17:18:20 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE ______________
+OBJECT MODULE PLACED IN .\Objects\æÿ’Û…®√Ë∫Õœ˚∂∂.obj
+COMPILER INVOKED BY: F:\keil\C51\BIN\C51.EXE æÿ’Û…®√Ë∫Õœ˚∂∂.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listin
+                    -gs\æÿ’Û…®√Ë∫Õœ˚∂∂.lst) TABS(2) OBJECT(.\Objects\æÿ’Û…®√Ë∫Õœ˚∂∂.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          
+   3          sbit LED1 = P0^0;
+   4          sbit LED2 = P0^1;
+   5          sbit LED3 = P0^2;
+   6          sbit KEYOUT = P2^0;
+   7          sbit KEYIN1 = P2^1;
+   8          sbit KEYIN2 = P2^2;
+   9          sbit KEYIN3 = P2^3;
+  10          
+  11          void delay();
+  12          int main()
+  13          {
+  14   1        EA = 1;
+  15   1        TMOD = 0x01;
+  16   1        TH0 = 0x70;
+  17   1        TL0 = 0x00;
+  18   1        ET0 = 1;
+  19   1        TR0 = 1;
+  20   1        return 0; 
+  21   1      }
+  22          void interrupttime() interrupt 1
+  23          {
+  24   1      //  unsigned char i;
+  25   1        static unsigned char keybuf[3][3]={{1,1,1},{1,1,1},{1,1,1}};
+  26   1        static unsigned char backup[3][3]={{1,1,1},{1,1,1},{1,1,1}};
+  27   1        TH0 = 0x70;
+  28   1        TR0 = 0x00;
+  29   1        KEYOUT = 0;
+  30   1        
+  31   1        keybuf[0][1]=KEYIN1;
+  32   1        if(keybuf[0][1] != backup[0][1])
+  33   1        {
+  34   2          delay();
+  35   2          if(keybuf[0][1] == KEYIN1)
+  36   2          {
+  37   3            if(backup == 0)
+  38   3            {
+  39   4              LED1 = ~LED1;
+  40   4            }
+  41   3          }
+  42   2          backup[0][1] = keybuf[0][1];
+  43   2        }
+  44   1        
+  45   1        keybuf[0][2]=KEYIN2;
+  46   1        if(keybuf[0][2] != backup[0][2])
+  47   1        {
+  48   2          delay();
+  49   2          if(keybuf[0][2] == KEYIN2)
+  50   2          {
+  51   3            if(backup == 0)
+  52   3            {
+  53   4              LED2 = ~LED2;
+  54   4            }
+C51 COMPILER V9.54   ______________                                                        01/18/2019 17:18:20 PAGE 2   
+
+  55   3          }
+  56   2          backup[0][2] = keybuf[0][2];
+  57   2        }
+  58   1        
+  59   1        keybuf[0][3]=KEYIN3;
+  60   1        if(keybuf[0][3] != backup[0][3])
+  61   1        {
+  62   2          delay();
+  63   2          if(keybuf[0][3] == KEYIN3)
+  64   2          {
+  65   3            if(backup == 0)
+  66   3            {
+  67   4              LED3 = ~LED3;
+  68   4            }
+  69   3          }
+  70   2          backup[0][3] = keybuf[0][3];
+  71   2        }
+  72   1      }
+  73          void delay()
+  74          {
+  75   1        unsigned char i = 1000;
+  76   1        while(i--);
+  77   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    183    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     18    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

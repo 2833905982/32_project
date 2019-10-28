@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\利哥找的一个定时器的中断.obj" 
+TO ".\Objects\利哥找的一个定时器的中断" 
+PRINT(".\Listings\利哥找的一个定时器的中断.m51") RAMSIZE(256) 

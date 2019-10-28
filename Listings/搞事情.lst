@@ -1,0 +1,82 @@
+C51 COMPILER V9.54   ______                                                                01/25/2019 19:04:11 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE ______
+OBJECT MODULE PLACED IN .\Objects\ธใสยว้.obj
+COMPILER INVOKED BY: F:\keil\C51\BIN\C51.EXE ธใสยว้.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\ธใสยว
+                    -้.lst) TABS(2) OBJECT(.\Objects\ธใสยว้.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          typedef unsigned int uint;
+   3          typedef unsigned char uchar;
+   4          sbit pwm=P0^3;//??PWM??
+   5          uint pwm_value=1500;//???1.5ms
+   6          
+   7          uint value[]={1400,1300,1200,1100,1000,900,800,700,600,500,600,700,800,900,1000,1100,1200,1300,1400,1500,1
+             -600,1700,1800,1900,2000,
+   8          2100,2200,2300,2400,2500,2400,2300,2200,2100,2000,1900,1800,1700,1600,1500};
+   9          void delay_ms(uint x)
+  10          {
+  11   1        uint i;
+  12   1        while(x--)for(i=0;i<125;i++);
+  13   1      }
+  14          void InitTimer(void)
+  15          {
+  16   1        TMOD=0x11;//????0,1
+  17   1        TH0=-20000/256;//??20MS,20MS?????
+  18   1        TL0=-20000%256;
+  19   1        TH1=-1500/256;//??1.5MS,??????0?
+  20   1        TL1=-1500%256;
+  21   1        EA=1;//???
+  22   1        TR0=1;//????0
+  23   1        ET0=1;
+  24   1        TR1=1;//????1
+  25   1        ET1=1;
+  26   1      }
+  27          void timer0(void) interrupt 1//???0????
+  28          {
+  29   1        pwm=1;
+  30   1        TH0=-20000/256;
+  31   1        TL0=-20000%256;
+  32   1        TR1=1;
+  33   1      }
+  34          
+  35          void timer1(void) interrupt 3//???1????
+  36          {
+  37   1        pwm=0;
+  38   1        TH1=-pwm_value/256;
+  39   1        TL1=-pwm_value%256;
+  40   1        TR1=0;
+  41   1      }
+  42          void main(void)//???
+  43          {
+  44   1        uchar i;
+  45   1        InitTimer();
+  46   1        pwm_value=1500;
+  47   1        while(1)
+  48   1        {
+  49   2          for(i=0;i<40;i++)
+  50   2          {
+  51   3            pwm_value=value[i];//???????????????
+  52   3            delay_ms(500);
+  53   3          }
+C51 COMPILER V9.54   ______                                                                01/25/2019 19:04:11 PAGE 2   
+
+  54   2        }
+  55   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    142    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     82    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

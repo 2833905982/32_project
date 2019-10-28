@@ -1,0 +1,147 @@
+C51 COMPILER V9.54   ________                                                              01/24/2019 11:48:13 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE ________
+OBJECT MODULE PLACED IN .\Objects\À¶ÑÀÐ¡³µ.obj
+COMPILER INVOKED BY: F:\keil\C51\BIN\C51.EXE À¶ÑÀÐ¡³µ.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\À¶Ñ
+                    -ÀÐ¡³µ.lst) TABS(2) OBJECT(.\Objects\À¶ÑÀÐ¡³µ.obj)
+
+line level    source
+
+   1          #include<reg52.h>
+   2          
+   3          #define uchar unsigned char
+   4          
+   5          #define uint  unsigned int
+   6          
+   7          sbit IN1 = P1^0;
+   8          sbit IN2 = P1^1;
+   9          sbit IN3 = P1^2;
+  10          sbit IN4 = P1^3;
+  11          sbit ENA = P1^4;
+  12          sbit ENB = P1^5;
+  13          
+  14          void back();
+  15          void qianjin();
+  16          void turnleft();
+  17          void turnright();
+  18          void stop();
+  19          
+  20          char buf;
+  21          
+  22          void main(void)
+  23          
+  24          {
+  25   1      
+  26   1      SCON=0x50;            //ÉèÖÃ´®¿Ú¹¤×÷·½Ê½01010000
+  27   1      
+  28   1      PCON=0x00;
+  29   1      
+  30   1      TMOD=0x20;            //¶¨Ê±Æ÷Ä£Ê½
+  31   1      
+  32   1      EA=1;                 //´ò¿ª×ÜÖÐ¶Ï
+  33   1      
+  34   1      ES=1;                 //´ò¿ª´®¿ÚÖÐ¶Ï
+  35   1      
+  36   1      TL1=0xfd;             //²¨ÌØÂÊÎª9600
+  37   1      TH1=0xfd;
+  38   1      
+  39   1      TR1=1;
+  40   1      
+  41   1      
+  42   1      while(1);
+  43   1      
+  44   1      }
+  45          
+  46           
+  47          //´«ÐÐ·þÎñº¯Êý
+  48          
+  49          void serial() interrupt 4
+  50          
+  51            {
+  52   1      
+  53   1        ES=0;               //ÔÝÊ±¹Ø±Õ´®¿ÚÖÐ¶Ï
+  54   1      
+C51 COMPILER V9.54   ________                                                              01/24/2019 11:48:13 PAGE 2   
+
+  55   1        RI=0;
+  56   1      
+  57   1        buf=SBUF;           //°ÑÊÕµ½µÄÐÅÏ¢´ÓSBUF´æµ½buf
+  58   1          
+  59   1        switch(buf)
+  60   1      
+  61   1        {
+  62   2      
+  63   2        case 1: back();break;  
+  64   2        case 2: qianjin();break;  
+  65   2      
+  66   2        case 3: turnleft();break;
+  67   2      
+  68   2        case 4: turnright();break;
+  69   2        case 5: stop();break;
+  70   2      
+  71   2        }
+  72   1      
+  73   1        ES=1; 
+  74   1      
+  75   1       
+  76   1      
+  77   1      }
+  78          void turnleft()
+  79          {
+  80   1        ENA = 1;
+  81   1        ENB = 1;
+  82   1        IN1 = 0;
+  83   1        IN2 = 1;
+  84   1        IN3 = 1;
+  85   1        IN4 = 0;
+  86   1      }
+  87          void turnright()
+  88          {
+  89   1        ENA = 1;
+  90   1        ENB = 1;
+  91   1          IN1 = 1;
+  92   1        IN2 = 0;
+  93   1        IN3 = 0;
+  94   1        IN4 = 1;
+  95   1      }
+  96          void back()
+  97          {
+  98   1        ENA = 1;
+  99   1        ENB = 1;
+ 100   1        IN1 = 1;
+ 101   1        IN2 = 0;
+ 102   1        IN3 = 1;
+ 103   1        IN4 = 0;
+ 104   1      }
+ 105          void qianjin()
+ 106          {
+ 107   1        ENA = 1;
+ 108   1        ENB = 1;
+ 109   1          IN1 = 0;
+ 110   1        IN2 = 1;
+ 111   1        IN3 = 0;
+ 112   1        IN4 = 1;
+ 113   1        
+ 114   1      }
+ 115          void stop()
+ 116          {
+C51 COMPILER V9.54   ________                                                              01/24/2019 11:48:13 PAGE 3   
+
+ 117   1        ENA = 0;
+ 118   1        ENB = 0;
+ 119   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    187    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

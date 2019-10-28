@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\串口通讯.obj" 
+TO ".\Objects\串口通讯" 
+PRINT(".\Listings\串口通讯.m51") RAMSIZE(256) 

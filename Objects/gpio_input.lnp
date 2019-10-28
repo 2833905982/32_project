@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\gpio_input.obj" 
+TO ".\Objects\gpio_input" 
+PRINT(".\Listings\gpio_input.m51") RAMSIZE(256) 

@@ -1,0 +1,3 @@
+".\Objects\STARTUP.obj" 
+TO ".\Objects\子洋的调试" 
+PRINT(".\Listings\子洋的调试.m51") RAMSIZE(256) 

@@ -1,0 +1,97 @@
+C51 COMPILER V9.54   ______________                                                        01/23/2019 12:46:35 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE ______________
+OBJECT MODULE PLACED IN .\Objects\车再不跑就吃屎.obj
+COMPILER INVOKED BY: F:\keil\C51\BIN\C51.EXE 车再不跑就吃屎.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listin
+                    -gs\车再不跑就吃屎.lst) TABS(2) OBJECT(.\Objects\车再不跑就吃屎.obj)
+
+line level    source
+
+   1          #include<reg52.h>
+   2            sbit hu1=P3^2; 
+   3            sbit hu2=P3^3; 
+   4            sbit IN1=P0^0;
+   5            sbit IN2=P0^1;
+   6            sbit IN3=P0^2;
+   7            sbit IN4=P0^3;
+   8            sbit ENA=P2^4;
+   9            sbit ENB=P2^5;
+  10            sbit led1=P1^1;
+  11            sbit led2=P1^2;
+  12            int i=0;
+  13            int j=0;
+  14             void time(void)
+  15            {
+  16   1          TMOD = 0x11;
+  17   1        TL0 = 0x18;
+  18   1        TH0 = 0xFC;
+  19   1          TR0=1;
+  20   1        EA=1;
+  21   1        ET0=1;
+  22   1        }
+  23            void main(void)
+  24            {
+  25   1            time();
+  26   1          IN1=1;
+  27   1          IN3=0;
+  28   1          IN2=0;
+  29   1          IN4=1;
+  30   1          led1=1;
+  31   1          led2=1;
+  32   1          EA=1;
+  33   1          EX0=1;
+  34   1          EX1=1;
+  35   1          IT0=0;
+  36   1          IT1=0; 
+  37   1           while(1);
+  38   1        }
+  39             void time1(void) interrupt 1
+  40            {
+  41   1        TL0 = 0x18; 
+  42   1          TH0 = 0xFC;
+  43   1        i++;
+  44   1        j++;
+  45   1           
+  46   1        if(i>=50)
+  47   1         i=0;
+  48   1        if(i<1) 
+  49   1         ENA=1;
+  50   1        else
+  51   1         ENA=0;
+  52   1      
+  53   1        if(j>=50)
+  54   1           j=0;
+C51 COMPILER V9.54   ______________                                                        01/23/2019 12:46:35 PAGE 2   
+
+  55   1          if(j<1)
+  56   1         ENB=1;
+  57   1        else
+  58   1         ENB=0;
+  59   1        }
+  60            void time0(void)interrupt 0
+  61            {
+  62   1             
+  63   1           ENA=1;
+  64   1           ENB=0;
+  65   1        }
+  66            void time2(void) interrupt 2
+  67            {
+  68   1            
+  69   1           ENA=0;
+  70   1           ENB=1;
+  71   1        }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    160    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      4    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

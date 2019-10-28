@@ -1,0 +1,85 @@
+C51 COMPILER V9.54   ZHONGDUAN                                                             12/21/2018 13:08:08 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE ZHONGDUAN
+OBJECT MODULE PLACED IN .\Objects\zhongduan.obj
+COMPILER INVOKED BY: F:\keil\C51\BIN\C51.EXE zhongduan.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\zh
+                    -ongduan.lst) TABS(2) OBJECT(.\Objects\zhongduan.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          
+   3          sbit LED = P0^0;
+   4          unsigned char led[]={
+   5              0xC0, 0xF9, 0xA4, 0xB0, 0x99, 0x92, 0x82, 0xF8,
+   6              0x80, 0x90, 0x88, 0x83, 0xC6, 0xA1, 0x86, 0x8E
+   7              };
+   8          unsigned char ledbug[]={
+   9              0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF
+  10              };
+  11          unsigned char i;
+  12          unsigned char cnt;
+  13          unsigned char flag;
+  14          int main()
+  15          {
+  16   1        EA   = 1;
+  17   1        TMOD = 0x01;
+  18   1        TH0  = 0xFC;
+  19   1        TL0  = 0x67;
+  20   1        ET0  = 1;
+  21   1        TR0  = 1;
+  22   1        while(1)
+  23   1        {
+  24   2          unsigned char sec = 0;
+  25   2          if(flag==1)
+  26   2          {
+  27   3            flag = 0;
+  28   3            sec++;
+  29   3            ledbug[0]=led[sec%10];
+  30   3            ledbug[1]=led[sec/10%10];
+  31   3            ledbug[2]=led[sec/100%10];
+  32   3            ledbug[3]=led[sec/1000%10];
+  33   3            ledbug[4]=led[sec/10000%10];
+  34   3            ledbug[5]=led[sec/100000%10];
+  35   3          }
+  36   2        }
+  37   1      }
+  38          void interruptTimer()  interrupt 1
+  39          {
+  40   1          TH0 = 0xFC;
+  41   1          TR0 = 0x67;
+  42   1          cnt++;
+  43   1          if(cnt>=1000)
+  44   1          {
+  45   2            cnt  = 0;
+  46   2            flag = 1;
+  47   2          }
+  48   1            P0 = 0xFF;
+  49   1            switch(i)
+  50   1            {
+  51   2              case 0: P0 = ledbug[0]; i++;  break;
+  52   2              case 1: P0 = ledbug[1]; i++;  break;
+  53   2              case 2: P0 = ledbug[2]; i++;  break;
+  54   2              case 3: P0 = ledbug[3]; i++;  break;
+C51 COMPILER V9.54   ZHONGDUAN                                                             12/21/2018 13:08:08 PAGE 2   
+
+  55   2              case 4: P0 = ledbug[4]; i++;  break;
+  56   2              case 5: P0 = ledbug[5]; i++;  break;
+  57   2              default : break;
+  58   2            }
+  59   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    262    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =     25       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

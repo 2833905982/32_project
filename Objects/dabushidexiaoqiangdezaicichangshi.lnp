@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\dabushidexiaoqiangdezaicichangshi.obj" 
+TO ".\Objects\dabushidexiaoqiangdezaicichangshi" 
+PRINT(".\Listings\dabushidexiaoqiangdezaicichangshi.m51") RAMSIZE(256) 

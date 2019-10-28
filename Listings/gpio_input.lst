@@ -1,0 +1,35 @@
+C51 COMPILER V9.54   GPIO_INPUT                                                            12/22/2018 21:27:44 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE GPIO_INPUT
+OBJECT MODULE PLACED IN .\Objects\gpio_input.obj
+COMPILER INVOKED BY: F:\keil\C51\BIN\C51.EXE gpio_input.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\g
+                    -pio_input.lst) TABS(2) OBJECT(.\Objects\gpio_input.obj)
+
+line level    source
+
+   1          #include<reg52.h>
+   2          sbit input = P0^0;
+   3          sbit output = P0^1;
+   4          main()
+   5          {
+   6   1        while(1)
+   7   1          if (input == 1)
+   8   1            output = 1;
+   9   1          else
+  10   1            output = 0;
+  11   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     11    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

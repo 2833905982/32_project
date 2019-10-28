@@ -1,0 +1,3 @@
+".\Objects\diergeLED.obj" 
+TO ".\Objects\diergeLED" 
+PRINT(".\Listings\diergeLED.m51") RAMSIZE(256) 

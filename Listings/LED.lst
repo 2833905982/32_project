@@ -1,0 +1,75 @@
+C51 COMPILER V9.54   LED                                                                   01/19/2019 21:05:02 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE LED
+OBJECT MODULE PLACED IN .\Objects\LED.obj
+COMPILER INVOKED BY: F:\keil\C51\BIN\C51.EXE LED.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\LED.lst)
+                    - TABS(2) OBJECT(.\Objects\LED.obj)
+
+line level    source
+
+   1          #include<reg52.h>
+   2          
+   3          char code high[9]={0x7f,0xbf,0xdf,0xef,0xf7,0xfb,0xfd,0xfe,0xff};
+   4          
+   5          char KeySta[3] = {0x3b,0x3d,0x3e};
+   6          
+   7          void delay(void)
+   8          {
+   9   1         int i;
+  10   1      
+  11   1         for (i=0 ;i<1000;i++);
+  12   1      }
+  13          
+  14          main()
+  15          {
+  16   1         int i,b;
+  17   1         char back;
+  18   1         b=10;
+  19   1         while(1){
+  20   2          for (i=0; i<3; i++)  
+  21   2              {
+  22   3                  P2 = KeySta[i];
+  23   3              back = P2;
+  24   3                      if (back != KeySta[i])  
+  25   3                      {
+  26   4                  delay();
+  27   4                back = P2;
+  28   4                          if(back != KeySta[i])         
+  29   4                          {
+  30   5                   if (back == (0x37 & KeySta[i])&& b != i*3){
+  31   6                   P1 =  high[i*3];
+  32   6                   b = i*3;
+  33   6                   }  else
+  34   5                   if (back == (0x2f & KeySta[i])&& b!= 1+i*3){
+  35   6                   P1 =  high[1+i*3];
+  36   6                   b =  1+i*3;
+  37   6                   } else
+  38   5                   if (back == (0x1f & KeySta[i])&& b != 2+i*3){
+  39   6                   P1 =  high[2+i*3];
+  40   6                   b =  2+i*3;
+  41   6                   }  else {
+  42   6                   P1 = high[8];
+  43   6                   b = 10;
+  44   6                   }    
+  45   5                          }  
+  46   4                      }
+  47   3               }
+  48   2          }
+  49   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    222    ----
+   CONSTANT SIZE    =      9    ----
+C51 COMPILER V9.54   LED                                                                   01/19/2019 21:05:02 PAGE 2   
+
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      3    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

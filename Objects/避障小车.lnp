@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\避障小车.obj" 
+TO ".\Objects\避障小车" 
+PRINT(".\Listings\避障小车.m51") RAMSIZE(256) 

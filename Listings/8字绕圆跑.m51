@@ -1,0 +1,198 @@
+BL51 BANKED LINKER/LOCATER V6.22                                                        01/21/2019  14:47:23  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.22, INVOKED BY:
+F:\KEIL\C51\BIN\BL51.EXE .\Objects\8×ÖÈÆÔ²ÅÜ.obj TO .\Objects\8×ÖÈÆÔ²ÅÜ PRINT (.\Listings\8×ÖÈÆÔ²ÅÜ.m51) RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  .\Objects\8×ÖÈÆÔ²ÅÜ.obj (8________)
+  F:\KEIL\C51\LIB\C51S.LIB (?C_STARTUP)
+
+
+LINK MAP OF MODULE:  .\Objects\8×ÖÈÆÔ²ÅÜ (8________)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0001H     UNIT         ?DT?8________
+            IDATA   0009H     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+            CODE    0003H     0003H     ABSOLUTE     
+            CODE    0006H     007BH     UNIT         ?PR?TIME1?8________
+            CODE    0081H     0047H     UNIT         ?PR?MAIN?8________
+            CODE    00C8H     000CH     UNIT         ?C_C51STARTUP
+            CODE    00D4H     0009H     UNIT         ?PR?TIME0?8________
+
+
+
+OVERLAY MAP OF MODULE:   .\Objects\8×ÖÈÆÔ²ÅÜ (8________)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?8________
+
+
+
+SYMBOL TABLE OF MODULE:  .\Objects\8×ÖÈÆÔ²ÅÜ (8________)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+  -------         MODULE        8________
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  B:00A8H.7       PUBLIC        EA
+  D:00A8H         PUBLIC        IE
+  B:00B0H.2       PUBLIC        lhuidu
+  B:00B0H.3       PUBLIC        rhuidu
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/21/2019  14:47:23  PAGE 2
+
+
+  D:00B8H         PUBLIC        IP
+  C:0081H         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0089H         PUBLIC        TMOD
+  D:0088H         PUBLIC        TCON
+  B:0080H.0       PUBLIC        IN1
+  B:0080H.1       PUBLIC        IN2
+  B:00A8H.1       PUBLIC        ET0
+  B:0080H.2       PUBLIC        IN3
+  B:0080H.3       PUBLIC        IN4
+  D:008CH         PUBLIC        TH0
+  D:008AH         PUBLIC        TL0
+  B:0088H.4       PUBLIC        TR0
+  C:00D4H         PUBLIC        time0
+  C:0006H         PUBLIC        time1
+  D:00C8H         PUBLIC        T2CON
+  D:0008H         PUBLIC        i
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          MAIN
+  C:0081H         LINE#         12
+  C:0081H         LINE#         14
+  C:0081H         LINE#         16
+  C:0084H         LINE#         18
+  C:0087H         LINE#         19
+  C:008AH         LINE#         21
+  C:008CH         LINE#         23
+  C:008EH         LINE#         25
+  C:0090H         LINE#         27
+  C:0090H         LINE#         29
+  C:0090H         LINE#         30
+  C:0097H         LINE#         31
+  C:0097H         LINE#         32
+  C:0099H         LINE#         33
+  C:009BH         LINE#         34
+  C:009BH         LINE#         35
+  C:00A2H         LINE#         36
+  C:00A2H         LINE#         37
+  C:00A4H         LINE#         38
+  C:00A6H         LINE#         39
+  C:00A6H         LINE#         40
+  C:00ADH         LINE#         41
+  C:00ADH         LINE#         42
+  C:00AFH         LINE#         43
+  C:00B1H         LINE#         44
+  C:00B1H         LINE#         45
+  C:00B8H         LINE#         46
+  C:00B8H         LINE#         47
+  C:00BAH         LINE#         48
+  C:00BCH         LINE#         49
+  C:00BCH         LINE#         50
+  C:00C3H         LINE#         51
+  C:00C3H         LINE#         52
+  C:00C6H         LINE#         53
+  C:00C6H         LINE#         54
+  -------         ENDPROC       MAIN
+  -------         PROC          TIME0
+  C:00D4H         LINE#         57
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/21/2019  14:47:23  PAGE 3
+
+
+  C:00D4H         LINE#         58
+  C:00D4H         LINE#         59
+  C:00D7H         LINE#         60
+  C:00DAH         LINE#         61
+  C:00DCH         LINE#         62
+  -------         ENDPROC       TIME0
+  -------         PROC          TIME1
+  C:0006H         LINE#         65
+  C:000AH         LINE#         68
+  C:000DH         LINE#         69
+  C:000DH         LINE#         70
+  C:0014H         LINE#         71
+  C:0014H         LINE#         72
+  C:0016H         LINE#         73
+  C:0018H         LINE#         74
+  C:0018H         LINE#         75
+  C:001FH         LINE#         76
+  C:001FH         LINE#         77
+  C:0021H         LINE#         78
+  C:0023H         LINE#         79
+  C:0023H         LINE#         80
+  C:002AH         LINE#         81
+  C:002AH         LINE#         82
+  C:002CH         LINE#         83
+  C:002EH         LINE#         84
+  C:002EH         LINE#         85
+  C:0035H         LINE#         86
+  C:0035H         LINE#         87
+  C:0037H         LINE#         88
+  C:0039H         LINE#         89
+  C:0039H         LINE#         90
+  C:0040H         LINE#         91
+  C:0040H         LINE#         92
+  C:0043H         LINE#         93
+  C:0043H         LINE#         94
+  C:0043H         LINE#         95
+  C:0046H         LINE#         96
+  C:0046H         LINE#         97
+  C:004DH         LINE#         98
+  C:004DH         LINE#         99
+  C:004FH         LINE#         100
+  C:0051H         LINE#         101
+  C:0051H         LINE#         102
+  C:0058H         LINE#         103
+  C:0058H         LINE#         104
+  C:005AH         LINE#         105
+  C:005CH         LINE#         106
+  C:005CH         LINE#         107
+  C:0063H         LINE#         108
+  C:0063H         LINE#         109
+  C:0065H         LINE#         110
+  C:0067H         LINE#         111
+  C:0067H         LINE#         112
+  C:006EH         LINE#         113
+  C:006EH         LINE#         114
+  C:0070H         LINE#         115
+  C:0072H         LINE#         116
+BL51 BANKED LINKER/LOCATER V6.22                                                      01/21/2019  14:47:23  PAGE 4
+
+
+  C:0072H         LINE#         117
+  C:0079H         LINE#         118
+  C:0079H         LINE#         119
+  C:007CH         LINE#         120
+  C:007CH         LINE#         121
+  C:007CH         LINE#         124
+  -------         ENDPROC       TIME1
+  -------         ENDMOD        8________
+
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?TIME0?8________
+
+Program Size: data=10.0 xdata=0 code=221
+LINK/LOCATE RUN COMPLETE.  1 WARNING(S),  0 ERROR(S)

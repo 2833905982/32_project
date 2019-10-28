@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\搞事情.obj" 
+TO ".\Objects\搞事情" 
+PRINT(".\Listings\搞事情.m51") RAMSIZE(256) 

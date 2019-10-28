@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\8字绕圆跑副本.obj" 
+TO ".\Objects\8字绕圆跑副本" 
+PRINT(".\Listings\8字绕圆跑副本.m51") RAMSIZE(256) 

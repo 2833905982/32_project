@@ -1,0 +1,59 @@
+C51 COMPILER V9.54   ______________                                                        01/21/2019 22:18:54 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE ______________
+OBJECT MODULE PLACED IN .\Objects\子洋的外部中断.obj
+COMPILER INVOKED BY: F:\keil\C51\BIN\C51.EXE 子洋的外部中断.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listin
+                    -gs\子洋的外部中断.lst) TABS(2) OBJECT(.\Objects\子洋的外部中断.obj)
+
+line level    source
+
+   1          #include<reg52.h>
+   2          sbit key1 = P0^0;
+   3          sbit key2 = P0^1;
+   4          sbit led1 = P0^2;
+   5          sbit led2 = P0^3;
+   6          
+   7          void delay(unsigned int i)
+   8          {
+   9   1        while(i--);
+  10   1      }
+  11          
+  12          void main()
+  13          {
+  14   1        while(1)
+  15   1        {
+  16   2          EA = 1;
+  17   2          EX0 = 1;
+  18   2          IT0 = 1;
+  19   2          EX1 = 1;
+  20   2          IT1 = 1;
+  21   2        }
+  22   1        
+  23   1      }
+  24          void ww1() interrupt 0
+  25          {
+  26   1        delay(1000);
+  27   1        if(key1 == 0)
+  28   1        led1 = ~led1;
+  29   1      }
+  30          void ww2() interrupt 2
+  31          {
+  32   1        delay(1000);
+  33   1        if(key2 == 0)
+  34   1        led2 = ~led2;
+  35   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     95    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

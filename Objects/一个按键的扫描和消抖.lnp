@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\一个按键的扫描和消抖.obj" 
+TO ".\Objects\一个按键的扫描和消抖" 
+PRINT(".\Listings\一个按键的扫描和消抖.m51") RAMSIZE(256) 

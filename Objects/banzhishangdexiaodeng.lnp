@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\banzhishangdexiaodeng.obj" 
+TO ".\Objects\banzhishangdexiaodeng" 
+PRINT(".\Listings\banzhishangdexiaodeng.m51") RAMSIZE(256) 

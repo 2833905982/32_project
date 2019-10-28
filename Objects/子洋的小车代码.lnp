@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\子洋的小车代码.obj" 
+TO ".\Objects\子洋的小车代码" 
+PRINT(".\Listings\子洋的小车代码.m51") RAMSIZE(256) 

@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\caigao.obj" 
+TO ".\Objects\нч" 
+PRINT(".\Listings\нч.m51") RAMSIZE(256) 

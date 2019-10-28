@@ -1,0 +1,139 @@
+C51 COMPILER V9.54   456                                                                   12/24/2018 18:39:02 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE 456
+OBJECT MODULE PLACED IN .\Objects\456.obj
+COMPILER INVOKED BY: F:\keil\C51\BIN\C51.EXE 456.C OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\456.lst)
+                    - TABS(2) OBJECT(.\Objects\456.obj)
+
+line level    source
+
+   1          #include<reg52.h>
+   2          
+   3          sbit A0=P0^0;
+   4          sbit A1=P0^1;
+   5          sbit A2=P0^2;
+   6          //sbit DIY=P3^2;
+   7          //sbit E1=P3^3;
+   8          sbit KeyOut1=P2^3;
+   9          sbit KeyOut2=P2^2;
+  10          sbit KeyOut3=P2^1;
+  11          sbit KeyIn1=P2^4;
+  12          sbit KeyIn2=P2^5;
+  13          sbit KeyIn3=P2^6;
+  14          #define uInt16 unsigned int
+  15          #define uChar8 unsigned char
+  16          #define KEYPORT  P2
+  17          uChar8 g_ucKeyNum=9;
+  18          //unsigned HC138[8]={0x00,0x80,0x40,0xC0,0x20,0xA0,0x60,0xE0};
+  19          void DelayMS(uInt16 ValMS)
+  20          {
+  21   1        uInt16 uiVal,ujVal;
+  22   1        for(uiVal = 0; uiVal < ValMS; uiVal++)
+  23   1          for(ujVal = 0; ujVal < 11100; ujVal++);
+  24   1      }
+  25          void ScanKey(void)
+  26          {
+  27   1        uChar8 ucTemp;
+  28   1         unsigned HC138[9]={0x7F,0xBF,0xDF,0xEF,0xF7,0xFB,0xFD,0xFE,0xFF};
+  29   1        KEYPORT = 0xFE;           //?????
+  30   1        ucTemp = KEYPORT;         //????????
+  31   1        if(ucTemp != 0xFB)        //?????0xF0???????
+  32   1        {
+  33   2          DelayMS(1000);                 //??
+  34   2          ucTemp = KEYPORT;     //????
+  35   2          if(ucTemp != 0xFE)      //????
+  36   2          {
+  37   3            ucTemp = KEYPORT;   //???
+  38   3            switch(ucTemp)      //????????
+  39   3            {
+  40   4              case 0xEE: g_ucKeyNum=HC138[0] ; ;break;
+  41   4              case 0xDE: g_ucKeyNum=HC138[1] ;break;
+  42   4              case 0xBE: g_ucKeyNum=HC138[2] ;break;
+  43   4              //case 0x7e:g_ucKeyNum = 3;break;        
+  44   4            }
+  45   3            while(KEYPORT != 0xFE); //??????
+  46   3          }
+  47   2        } 
+  48   1        KEYPORT = 0xFD;
+  49   1        ucTemp = KEYPORT;
+  50   1        if(ucTemp != 0xFD)
+  51   1        {
+  52   2          DelayMS(1000);
+  53   2          ucTemp = KEYPORT;
+  54   2          if(ucTemp != 0xFD)
+C51 COMPILER V9.54   456                                                                   12/24/2018 18:39:02 PAGE 2   
+
+  55   2          {
+  56   3            ucTemp = KEYPORT;
+  57   3            switch(ucTemp)
+  58   3            {
+  59   4              case 0xED: g_ucKeyNum=HC138[3];break;
+  60   4              case 0xDD: g_ucKeyNum=HC138[4];break;
+  61   4              case 0xBD: g_ucKeyNum=HC138[5];break;
+  62   4                      
+  63   4            }
+  64   3            while(KEYPORT != 0xFD);
+  65   3          }
+  66   2        } 
+  67   1        KEYPORT = 0xFB;
+  68   1        ucTemp = KEYPORT;
+  69   1        if(ucTemp != 0xFB)
+  70   1        {
+  71   2          DelayMS(1000);
+  72   2          ucTemp = KEYPORT;
+  73   2          if(ucTemp != 0xFB)
+  74   2          {
+  75   3            ucTemp = KEYPORT;
+  76   3            switch(ucTemp)
+  77   3            {
+  78   4              case 0xEB: g_ucKeyNum=HC138[6] ;break;
+  79   4              case 0xDB: g_ucKeyNum=HC138[7] ;break;
+  80   4              case 0xBB: g_ucKeyNum=HC138[1] ;break;
+  81   4                    
+  82   4            }
+  83   3            while(KEYPORT != 0xFB);
+  84   3          }
+  85   2        } 
+  86   1      }
+  87          
+  88          /*void delay(void)
+  89          {
+  90            int i;
+  91            for(i=0;i<10;i++);
+  92          }
+  93            */
+  94          void main(void)
+  95              //E1=0;
+  96              
+  97          { 
+  98   1          
+  99   1      
+ 100   1        while(1)
+ 101   1        { 
+ 102   2        //unsigned HC138[8]={0x00,0x80,0x40,0xC0,0x20,0xA0,0x60,0xE0};
+ 103   2        //  DIY=1;
+ 104   2          ScanKey();
+ 105   2          
+ 106   2          
+ 107   2      
+ 108   2          
+ 109   2        }
+ 110   1      
+ 111   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    238    ----
+   CONSTANT SIZE    =     18    ----
+C51 COMPILER V9.54   456                                                                   12/24/2018 18:39:02 PAGE 3   
+
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1      19
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,85 @@
+C51 COMPILER V9.54   ________                                                              01/20/2019 18:09:12 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE ________
+OBJECT MODULE PLACED IN .\Objects\Õ‚≤ø÷–∂œ.obj
+COMPILER INVOKED BY: F:\keil\C51\BIN\C51.EXE Õ‚≤ø÷–∂œ.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\Õ‚≤
+                    -ø÷–∂œ.lst) TABS(2) OBJECT(.\Objects\Õ‚≤ø÷–∂œ.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          
+   3          sbit KEY1 = P3^2;
+   4          sbit KEY2 = P3^3;
+   5          sbit LED1 = P0^0;
+   6          sbit LED2 = P0^1;
+   7          bit backup1 = 1;
+   8          bit backup2 = 1;
+   9          
+  10          unsigned char keybuf1 = 1;
+  11          unsigned char keybuf2 = 1;
+  12          
+  13          void delay();
+  14          void main()
+  15          {
+  16   1        EA = 1;
+  17   1        IT0 = 1;
+  18   1        EX0 = 1;
+  19   1        IT1 = 1;
+  20   1        EX1 = 1;
+  21   1        while(1);
+  22   1      }
+  23          void zhongduang1() interrupt 0
+  24          {
+  25   1        keybuf1 = KEY1;
+  26   1        if(keybuf1!=backup1)
+  27   1        {
+  28   2          delay();
+  29   2          if(keybuf1==KEY1)
+  30   2          {
+  31   3            if(backup1==0)
+  32   3            {
+  33   4              LED1 = ~LED1;
+  34   4            }
+  35   3          }
+  36   2          backup1 = keybuf1;
+  37   2        }
+  38   1      }
+  39          void zhongduan2() interrupt 2
+  40          {
+  41   1        keybuf2 = KEY2;
+  42   1        if(keybuf2!=backup2)
+  43   1        {
+  44   2          delay();
+  45   2          if(keybuf2==KEY2)
+  46   2          {
+  47   3            if(backup2==0)
+  48   3            {
+  49   4              LED2 = ~LED2;
+  50   4            }
+  51   3          }
+  52   2          backup2 = keybuf2;
+  53   2        }
+  54   1      }
+C51 COMPILER V9.54   ________                                                              01/20/2019 18:09:12 PAGE 2   
+
+  55          void delay()
+  56          {
+  57   1        unsigned char i = 1000;
+  58   1        while(i--);
+  59   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    203    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =      2    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

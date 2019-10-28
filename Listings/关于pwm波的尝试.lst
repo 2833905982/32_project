@@ -1,0 +1,79 @@
+C51 COMPILER V9.54   ____PWM________                                                       01/21/2019 11:25:31 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE ____PWM________
+OBJECT MODULE PLACED IN .\Objects\关于pwm波的尝试.obj
+COMPILER INVOKED BY: F:\keil\C51\BIN\C51.EXE 关于pwm波的尝试.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listi
+                    -ngs\关于pwm波的尝试.lst) TABS(2) OBJECT(.\Objects\关于pwm波的尝试.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          
+   3          sbit IN1 = P0^0;
+   4          sbit IN2 = P0^1;
+   5          sbit IN3 = P0^2;
+   6          sbit IN4 = P0^3;
+   7          
+   8          unsigned char i=0;
+   9          
+  10          int main()
+  11          {
+  12   1        
+  13   1        EA = 1;
+  14   1        TMOD = 0x01;
+  15   1        TH0 = 0xFC;           //定时1毫秒。
+  16   1        TL0 = 0x67;
+  17   1        ET0 = 1;
+  18   1        TR0 = 1;
+  19   1        while(1)
+  20   1        {
+  21   2        if(i<1)             //左边的电机，小于50个毫秒时，电机正转。
+  22   2        {
+  23   3          IN1 = 0;
+  24   3          IN2 = 1;
+  25   3        }
+  26   2        if(i>99)              //左边的电机，在大于50个毫秒时，电机停止供电。
+  27   2        {
+  28   3          IN1 = 0;
+  29   3          IN2 = 0;
+  30   3        }
+  31   2          if(i<1)           //右边的电机，小于50个毫秒时，电机正转。
+  32   2        {
+  33   3          IN3 = 0;
+  34   3          IN4 = 1;
+  35   3        }
+  36   2        if(i>99)              //右边的电机，在大于50个毫秒时，电机停止供电。
+  37   2        {
+  38   3          IN3 = 0;
+  39   3          IN4 = 0;
+  40   3        }
+  41   2        if(i>100)             //当i的值大于100时，归零。
+  42   2        {
+  43   3          i=0;
+  44   3        }
+  45   2        return 0;
+  46   2      }
+  47   1      }
+  48          void interrupttime() interrupt 1          //定时器，中断函数，每一毫秒，数字加一。
+  49          {
+  50   1        TH0 = 0xFC;
+  51   1        TL0 = 0x67;
+  52   1        i++;
+  53   1      }
+
+C51 COMPILER V9.54   ____PWM________                                                       01/21/2019 11:25:31 PAGE 2   
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     82    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

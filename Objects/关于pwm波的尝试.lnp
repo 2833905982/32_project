@@ -1,0 +1,3 @@
+".\Objects\关于pwm波的尝试.obj" 
+TO ".\Objects\关于pwm波的尝试" 
+PRINT(".\Listings\关于pwm波的尝试.m51") RAMSIZE(256) 

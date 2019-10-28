@@ -1,0 +1,3 @@
+".\Objects\验证基本功能.obj" 
+TO ".\Objects\验证基本功能" 
+PRINT(".\Listings\验证基本功能.m51") RAMSIZE(256) 

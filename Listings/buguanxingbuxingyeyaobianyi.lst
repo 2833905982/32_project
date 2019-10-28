@@ -1,0 +1,91 @@
+C51 COMPILER V9.54   BUGUANXINGBUXINGYEYAOBIANYI                                           12/22/2018 13:04:05 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE BUGUANXINGBUXINGYEYAOBIANYI
+OBJECT MODULE PLACED IN .\Objects\buguanxingbuxingyeyaobianyi.obj
+COMPILER INVOKED BY: F:\keil\C51\BIN\C51.EXE buguanxingbuxingyeyaobianyi.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND P
+                    -RINT(.\Listings\buguanxingbuxingyeyaobianyi.lst) TABS(2) OBJECT(.\Objects\buguanxingbuxingyeyaobianyi.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          
+   3          sbit led = P0^0;                                          //使用第一个IO口，用来输出。
+   4          
+   5          unsigned char code ledchar[]=                             //定义一系列的数字，让数码管显示这些数字。
+   6          {       0xC0,0xF9,0xA4,0xB0,0x99,
+   7                  0x92,0x82,0xF8,0x80,0x90,
+   8                  0x88,0x83,0xC6,0xA1,0x86,0x8E
+   9          };
+  10          unsigned char ledbuf[6]=                                  //定义所有的数码管，让六个数码管循环显示。
+  11          {
+  12                  0xFF,0xFF,0xFF,0xFF,0xFF,0xFF,
+  13          };
+  14          unsigned char flag = 0;
+  15          unsigned char i = 0;
+  16          int main()                                                //主函数运行主要的程序。
+  17          {
+  18   1        TMOD =0x01;                                             //定义使用T0的模式为第一种。
+  19   1        TH0  = 0xFC;                                            //为T0赋初值为FC67,定时为1毫秒。
+  20   1        TL0  = 0x67;
+  21   1        EA   = 1;                                               //打开中断的总开关。
+  22   1        ET0  = 1;                                               //使能总中断。
+  23   1        TR0  = 1;                                               //启动总中断T0。
+  24   1      
+  25   1        
+  26   1        while(1)                                                //让数码管从零开始显示数字，使它成为一个计数器。
+  27   1        {
+  28   2          unsigned long sec = 0;
+  29   2          if(flag==1)
+  30   2          {
+  31   3            flag=0;
+  32   3            sec++;
+  33   3            ledbuf[0]=ledchar[sec%10];                          //相除取余，让数码管显示各个数字。
+  34   3            ledbuf[1]=ledchar[sec/10%10];
+  35   3            ledbuf[2]=ledchar[sec/100%10];
+  36   3            ledbuf[3]=ledchar[sec/1000%10];
+  37   3            ledbuf[4]=ledchar[sec/10000%10];
+  38   3            ledbuf[5]=ledchar[sec/100000%10];
+  39   3          }
+  40   2          
+  41   2        }
+  42   1      }
+  43          void interruptTimer() interrupt 1
+  44          {
+  45   1        unsigned cnt = 0;
+  46   1        TH0 = 0xFC;
+  47   1        TR0 = 0x67;
+  48   1        cnt++;
+  49   1        if(cnt>=1000)
+  50   1        {
+  51   2          cnt=0;
+  52   2          flag=1;
+  53   2        }
+  54   1        P0 = 0xFF;
+C51 COMPILER V9.54   BUGUANXINGBUXINGYEYAOBIANYI                                           12/22/2018 13:04:05 PAGE 2   
+
+  55   1        switch(i)
+  56   1        {
+  57   2          case 0: i++;P0=ledbuf[0];break;
+  58   2          case 1: i++;P0=ledbuf[1];break;
+  59   2          case 2: i++;P0=ledbuf[2];break;
+  60   2          case 3: i++;P0=ledbuf[3];break;
+  61   2          case 4: i++;P0=ledbuf[4];break;
+  62   2          case 5: i=0;P0=ledbuf[5];break;
+  63   2          default : break;
+  64   2        }
+  65   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    401    ----
+   CONSTANT SIZE    =     16    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      8       4
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

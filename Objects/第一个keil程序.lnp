@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\第一个keil程序.obj" 
+TO ".\Objects\第一个keil程序" 
+PRINT(".\Listings\第一个keil程序.m51") RAMSIZE(256) 

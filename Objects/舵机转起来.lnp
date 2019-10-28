@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\舵机转起来.obj" 
+TO ".\Objects\舵机转起来" 
+PRINT(".\Listings\舵机转起来.m51") RAMSIZE(256) 

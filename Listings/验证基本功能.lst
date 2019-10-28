@@ -1,0 +1,202 @@
+C51 COMPILER V9.54   ____________                                                          01/18/2019 18:48:29 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE ____________
+OBJECT MODULE PLACED IN .\Objects\验证基本功能.obj
+COMPILER INVOKED BY: F:\keil\C51\BIN\C51.EXE 验证基本功能.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings
+                    -\验证基本功能.lst) TABS(2) OBJECT(.\Objects\验证基本功能.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          
+   3          sbit LED1 = P0^0;
+   4          sbit LED2 = P0^1;
+   5          sbit LED3 = P0^2;
+   6          sbit LED4 = P0^3;
+   7          sbit LED5 = P0^4;
+   8          sbit LED6 = P0^5;
+   9          sbit LED7 = P0^6;
+  10          sbit LED8 = P0^7;
+  11          
+  12          sbit KEYIN1 = P2^4;
+  13          sbit KEYIN2 = P2^5;
+  14          sbit KEYIN3 = P2^6;
+  15          
+  16          sbit KEYOUT1 = P2^0;
+  17          sbit KEYOUT2 = P2^1;
+  18          sbit KEYOUT3 = P2^2;
+  19          
+  20          
+  21          void delay();
+  22          int main()
+  23          {
+  24   1        unsigned char keybuf[3][3] = {{1,1,1},{1,1,1},{1,1,1}};
+  25   1        unsigned char backup[3][3] = {{1,1,1},{1,1,1},{1,1,1}};
+  26   1      //  unsigned char i,j;
+  27   1      //  KEYOUT = 0;
+  28   1      //  LED = 1;
+  29   1        
+  30   1        while(1)
+  31   1        {
+  32   2            KEYOUT1 = 0;
+  33   2            KEYOUT2 = 1;
+  34   2            KEYOUT3 = 1;
+  35   2            keybuf[0][0] = KEYIN1;
+  36   2            if(keybuf[0][0] != backup[0][0])
+  37   2            {
+  38   3              delay();
+  39   3              if(keybuf[0][0] == KEYIN1)
+  40   3              {
+  41   4                if(backup[0][0] == 0)
+  42   4                {
+  43   5                  LED1 = ~LED1;
+  44   5                }
+  45   4              }
+  46   3                backup[0][0] = keybuf[0][0];  
+  47   3            }
+  48   2            
+  49   2                  keybuf[0][1] = KEYIN2;
+  50   2            if(keybuf[0][1] != backup[0][1])
+  51   2            {
+  52   3              delay();
+  53   3              if(keybuf[0][1] == KEYIN2)
+  54   3              {
+C51 COMPILER V9.54   ____________                                                          01/18/2019 18:48:29 PAGE 2   
+
+  55   4                if(backup[0][1] == 0)
+  56   4                {
+  57   5                  LED2 = ~LED2;
+  58   5                }
+  59   4              }
+  60   3                backup[0][1] = keybuf[0][1];  
+  61   3            }
+  62   2            
+  63   2                  keybuf[0][2] = KEYIN3;
+  64   2            if(keybuf[0][2] != backup[0][2])
+  65   2            {
+  66   3              delay();
+  67   3              if(keybuf[0][2] == KEYIN3)
+  68   3              {
+  69   4                if(backup[0][2] == 0)
+  70   4                {
+  71   5                  LED3 = ~LED3;
+  72   5                }
+  73   4              }
+  74   3                backup[0][2] = keybuf[0][2];  
+  75   3            }
+  76   2            
+  77   2                KEYOUT1 = 1;
+  78   2                KEYOUT2 = 0;
+  79   2                KEYOUT3 = 1;
+  80   2                keybuf[1][0] = KEYIN1;
+  81   2            if(keybuf[1][0] != backup[1][0])
+  82   2            {
+  83   3              delay();
+  84   3              if(keybuf[1][0] == KEYIN1)
+  85   3              {
+  86   4                if(backup[1][0] == 0)
+  87   4                {
+  88   5                  LED4 = ~LED4;
+  89   5                }
+  90   4              }
+  91   3                backup[1][0] = keybuf[1][0];  
+  92   3            }
+  93   2                
+  94   2                keybuf[1][1] = KEYIN2;
+  95   2            if(keybuf[1][1] != backup[1][1])
+  96   2            {
+  97   3              delay();
+  98   3              if(keybuf[1][1] == KEYIN2)
+  99   3              {
+ 100   4                if(backup[1][1] == 0)
+ 101   4                {
+ 102   5                  LED5 = ~LED5;
+ 103   5                }
+ 104   4              }
+ 105   3                backup[1][1] = keybuf[1][1];  
+ 106   3            }
+ 107   2            
+ 108   2                  keybuf[1][2] = KEYIN3;
+ 109   2            if(keybuf[1][2] != backup[1][2])
+ 110   2            {
+ 111   3              delay();
+ 112   3              if(keybuf[1][2] == KEYIN3)
+ 113   3              {
+ 114   4                if(backup[1][2] == 0)
+ 115   4                {
+ 116   5                  LED6 = ~LED6;
+C51 COMPILER V9.54   ____________                                                          01/18/2019 18:48:29 PAGE 3   
+
+ 117   5                }
+ 118   4              }
+ 119   3                backup[1][2] = keybuf[1][2];  
+ 120   3            }
+ 121   2                KEYOUT1 = 1;
+ 122   2                KEYOUT2 = 1;
+ 123   2                KEYOUT3 = 0;
+ 124   2                  keybuf[2][0] = KEYIN1;
+ 125   2            if(keybuf[2][0] != backup[2][0])
+ 126   2            {
+ 127   3              delay();
+ 128   3              if(keybuf[2][0] == KEYIN1)
+ 129   3              {
+ 130   4                if(backup[2][0] == 0)
+ 131   4                {
+ 132   5                  LED7 = ~LED7;
+ 133   5                }
+ 134   4              }
+ 135   3                backup[2][0] = keybuf[2][0];  
+ 136   3            }
+ 137   2                
+ 138   2                keybuf[2][1] = KEYIN2;
+ 139   2            if(keybuf[2][1] != backup[2][1])
+ 140   2            {
+ 141   3              delay();
+ 142   3              if(keybuf[2][1] == KEYIN2)
+ 143   3              {
+ 144   4                if(backup[2][1] == 0)
+ 145   4                {
+ 146   5                  LED8 = ~LED8;
+ 147   5                }
+ 148   4              }
+ 149   3                backup[2][1] = keybuf[2][1];  
+ 150   3            }
+ 151   2            
+ 152   2          /*        keybuf[2][2] = KEYIN3;
+ 153   2            if(keybuf[2][2] != backup[2][2])
+ 154   2            {
+ 155   2              delay();
+ 156   2              if(keybuf[2][2] == KEYIN1)
+ 157   2              {
+ 158   2                if(backup[2][2] == 0)
+ 159   2                {
+ 160   2                  LED = ~LED;
+ 161   2                }
+ 162   2              }
+ 163   2                backup[2][2] = keybuf[2][2];  
+ 164   2            }
+ 165   2          */  
+ 166   2        }
+ 167   1      }
+ 168          void delay()
+ 169          {
+ 170   1        unsigned int i=1000;
+ 171   1        while(i--);
+ 172   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    309    ----
+   CONSTANT SIZE    =     18    ----
+   XDATA SIZE       =   ----    ----
+C51 COMPILER V9.54   ____________                                                          01/18/2019 18:48:29 PAGE 4   
+
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----      18
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

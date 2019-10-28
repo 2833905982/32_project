@@ -1,0 +1,97 @@
+C51 COMPILER V9.54   __________                                                            01/26/2019 12:18:05 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE __________
+OBJECT MODULE PLACED IN .\Objects\³¬Éù²¨Ä£¿é.obj
+COMPILER INVOKED BY: F:\keil\C51\BIN\C51.EXE ³¬Éù²¨Ä£¿é.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\³
+                    -¬Éù²¨Ä£¿é.lst) TABS(2) OBJECT(.\Objects\³¬Éù²¨Ä£¿é.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          
+   3          sbit pwm = P0^3;
+   4          sbit led = P0^4;
+   5          sbit ECHO = P0^5;
+   6          int i = 0,sum = 0,l = 0;
+   7          
+   8          void cheju();
+   9          void chaoshengbo();
+  10          void main()
+  11          {
+  12   1        TMOD = 0x11;
+  13   1        TH0 = 0xFF;
+  14   1        TL0 = 0xFF;
+  15   1        ET0 = 1;
+  16   1        ET1 = 1;
+  17   1        TR0 = 1;
+  18   1        while(1)
+  19   1        {
+  20   2          chaoshengbo();
+  21   2          cheju();
+  22   2      }
+  23   1      }
+  24          void cheju()
+  25          {
+  26   1        TH1 = 0;
+  27   1        TL1 = 0;
+  28   1        
+  29   1        while(!ECHO)
+  30   1        {
+  31   2          TR1 = 1;
+  32   2        }
+  33   1        while(ECHO)
+  34   1        {
+  35   2          TR1 = 0;
+  36   2        }
+  37   1        sum = TH1 * 256 + TL1;
+  38   1        l = (sum * 1.78) / 100;
+  39   1        TH1 = 0;
+  40   1        TL1 = 0;
+  41   1        if(l<15)
+  42   1        {
+  43   2          led = 0;
+  44   2        }
+  45   1        if(l>4)
+  46   1        {
+  47   2          led = 1;
+  48   2        }
+  49   1      
+  50   1      }
+  51          void chaoshengbo()
+  52          {
+  53   1        if(i<13)
+  54   1        {
+C51 COMPILER V9.54   __________                                                            01/26/2019 12:18:05 PAGE 2   
+
+  55   2          pwm = 1;
+  56   2        }
+  57   1        if(i>13)
+  58   1        {
+  59   2          pwm = 0;
+  60   2        }
+  61   1        if(i>50)
+  62   1        {
+  63   2          i = 0;
+  64   2        }
+  65   1      }
+  66          void time0() interrupt 1
+  67          {
+  68   1        TH0 = 0xFF;
+  69   1        TL0 = 0xFF;
+  70   1        i++;
+  71   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    196    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      6    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

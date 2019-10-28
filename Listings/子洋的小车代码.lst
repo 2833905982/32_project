@@ -1,0 +1,76 @@
+C51 COMPILER V9.54   ______________                                                        01/20/2019 22:34:45 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE ______________
+OBJECT MODULE PLACED IN .\Objects\子洋的小车代码.obj
+COMPILER INVOKED BY: F:\keil\C51\BIN\C51.EXE 子洋的小车代码.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listin
+                    -gs\子洋的小车代码.lst) TABS(2) OBJECT(.\Objects\子洋的小车代码.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          sbit IN1 = P0^0;
+   3          sbit IN2 = P0^1;
+   4          sbit IN3 = P0^2;
+   5          sbit IN4 = P0^3;
+   6          sbit ENA = P0^4;
+   7          sbit ENB = P0^5;
+   8          
+   9          
+  10          unsigned char i;
+  11          
+  12          void main()
+  13          {
+  14   1        TMOD = 0x01;
+  15   1        TH0 = 0xFC;
+  16   1        TL0 = 0X67;
+  17   1        EA = 1;
+  18   1        ET0 = 1;
+  19   1        TR0 = 1;
+  20   1        
+  21   1        if(i<50)
+  22   1        {
+  23   2          IN1 = 0;
+  24   2          IN2 = 1;
+  25   2          IN3 = 1;
+  26   2          IN4 = 0;
+  27   2          ENA = 1;
+  28   2          ENB = 1;
+  29   2        }
+  30   1         if(i>=50)
+  31   1        {
+  32   2          IN1 = 0;
+  33   2          IN2 = 0;
+  34   2          IN3 = 0;
+  35   2          IN4 = 0;
+  36   2          ENA = 1;
+  37   2          ENB = 1;
+  38   2        }
+  39   1        if(i>100)
+  40   1        {
+  41   2          i = 0;
+  42   2        }
+  43   1        
+  44   1      }
+  45          void time() interrupt 1
+  46          {
+  47   1        TH0 = 0xFC;
+  48   1        TL0 = 0x67;
+  49   1        i++;
+  50   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     73    ----
+C51 COMPILER V9.54   ______________                                                        01/20/2019 22:34:45 PAGE 2   
+
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

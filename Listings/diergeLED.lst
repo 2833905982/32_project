@@ -1,0 +1,49 @@
+C51 COMPILER V9.54   DIERGELED                                                             12/16/2018 18:10:37 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE DIERGELED
+OBJECT MODULE PLACED IN .\Objects\diergeLED.obj
+COMPILER INVOKED BY: F:\keil\C51\BIN\C51.EXE diergeLED.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\di
+                    -ergeLED.lst) TABS(2) OBJECT(.\Objects\diergeLED.obj)
+
+line level    source
+
+   1          #include <reg52.h>
+   2          
+   3          sbit LED1 = P0^0;
+   4          sbit LED2 = P0^1;
+   5          sbit LED3 = P0^2;
+   6          
+   7          void delay(void)
+   8          {
+   9   1        int i;
+  10   1        for(i=0;i<30000;i++);
+  11   1      }
+  12          int main()
+  13          {
+  14   1        while(1)
+  15   1        {
+  16   2          LED1=0;LED2=0;LED3=0;delay();
+  17   2          LED1=1;LED2=0;LED3=0;delay();
+  18   2          LED1=0;LED2=1;LED3=0;delay();
+  19   2          LED1=1;LED2=1;LED3=0;delay();
+  20   2          LED1=0;LED2=0;LED3=1;delay();
+  21   2          LED1=1;LED2=0;LED3=1;delay();
+  22   2          LED1=0;LED2=1;LED3=1;delay();
+  23   2          LED1=1;LED2=1;LED3=1;delay();
+  24   2        }
+  25   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     89    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

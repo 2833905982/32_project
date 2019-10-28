@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\车再不跑就吃屎.obj" 
+TO ".\Objects\车再不跑就吃屎" 
+PRINT(".\Listings\车再不跑就吃屎.m51") RAMSIZE(256) 

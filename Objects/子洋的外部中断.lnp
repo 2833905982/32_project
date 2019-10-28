@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\子洋的外部中断.obj" 
+TO ".\Objects\子洋的外部中断" 
+PRINT(".\Listings\子洋的外部中断.m51") RAMSIZE(256) 

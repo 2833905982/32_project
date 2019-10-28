@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\舵机转90度.obj" 
+TO ".\Objects\舵机转90度" 
+PRINT(".\Listings\舵机转90度.m51") RAMSIZE(256) 

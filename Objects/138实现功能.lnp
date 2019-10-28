@@ -1,0 +1,4 @@
+".\Objects\STARTUP.obj",
+".\Objects\138实现功能.obj" 
+TO ".\Objects\138实现功能" 
+PRINT(".\Listings\138实现功能.m51") RAMSIZE(256) 
