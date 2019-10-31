@@ -15,7 +15,8 @@
   ******************************************************************************
   */ 
 	
-#include "bsp_usart3.h"
+#include "./usart3/bsp_usart3.h"
+#include <stdarg.h>	
 
  /**
   * @brief  配置嵌套向量中断控制器NVIC
@@ -46,7 +47,7 @@ static void NVIC_Configuration(void)
   * @param  无
   * @retval 无
   */
-void USART1_Config(void)
+void USART3_Config(void)
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
 	USART_InitTypeDef USART_InitStructure;
@@ -158,7 +159,7 @@ void Usart3_SendHalfWord( USART_TypeDef * pUSARTx, uint16_t ch)
 int fputc(int ch, FILE *f)
 {
 		/* 发送一个字节数据到串口 */
-		USART_SendData(DEBUG_USART1, (uint8_t) ch);
+		USART_SendData(DEBUG_USART3, (uint8_t) ch);
 		
 		/* 等待发送完毕 */
 		while (USART_GetFlagStatus(DEBUG_USART3, USART_FLAG_TXE) == RESET);		
@@ -174,6 +175,25 @@ int fgetc(FILE *f)
 
 		return (int)USART_ReceiveData(DEBUG_USART3);
 }
+
+///*这个函数可以替代peintf函数，注意第一次使用的时候第一个字符会丢失*/
+//void usart3Printf(char *fmt, ...)
+//{
+//	int CMD_BUFFER_LEN=30;//根据要发送的数据决定大小当然也可以定义很大，注意的是定的越大那么这个函数运行的越慢
+//	
+//	char buffer[CMD_BUFFER_LEN - 1];
+//	u8 i = 0;
+//	u8 len;
+//	va_list arg_ptr; //Define convert parameters variable
+//	va_start(arg_ptr, fmt); //Init variable
+//	len = vsnprintf(buffer, CMD_BUFFER_LEN+1, fmt, arg_ptr); //parameters list format to buffer
+//	while ((i <(u8) CMD_BUFFER_LEN) && (i <(u8) len) && (len > 0))
+//	{
+//		USART_SendData(USART3, (u8) buffer[i++]);
+//		while (USART_GetFlagStatus(USART3, USART_FLAG_TC) == RESET);
+//	}
+//	va_end(arg_ptr);
+//}
 
 // 串口中断服务函数
 void DEBUG_USART3_IRQHandler(void)

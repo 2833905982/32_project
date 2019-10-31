@@ -15,7 +15,8 @@
   ******************************************************************************
   */ 
 	
-#include "bsp_usart2.h"
+#include "./usart5/bsp_usart5.h"
+#include <stdarg.h>	
 
  /**
   * @brief  配置嵌套向量中断控制器NVIC
@@ -46,16 +47,16 @@ static void NVIC_Configuration(void)
   * @param  无
   * @retval 无
   */
-void USART1_Config(void)
+void USART5_Config(void)
 {
 	GPIO_InitTypeDef GPIO_InitStructure;
 	USART_InitTypeDef USART_InitStructure;
 
 	// 打开串口GPIO的时钟
-	DEBUG_USART2_GPIO_APBxClkCmd(DEBUG_USART5_GPIO_CLK, ENABLE);
+	DEBUG_USART5_GPIO_APBxClkCmd(DEBUG_USART5_GPIO_CLK, ENABLE);
 	
 	// 打开串口外设的时钟
-	DEBUG_USART2_APBxClkCmd(DEBUG_USART5_CLK, ENABLE);
+	DEBUG_USART5_APBxClkCmd(DEBUG_USART5_CLK, ENABLE);
 
 	// 将USART Tx的GPIO配置为推挽复用模式
 	GPIO_InitStructure.GPIO_Pin = DEBUG_USART5_TX_GPIO_PIN;
@@ -174,6 +175,25 @@ int fgetc(FILE *f)
 
 		return (int)USART_ReceiveData(DEBUG_USART5);
 }
+
+///*这个函数可以替代peintf函数，注意第一次使用的时候第一个字符会丢失*/
+//void usart5Printf(char *fmt, ...)
+//{
+//	int CMD_BUFFER_LEN=30;//根据要发送的数据决定大小当然也可以定义很大，注意的是定的越大那么这个函数运行的越慢
+//	
+//	char buffer[CMD_BUFFER_LEN - 1];
+//	u8 i = 0;
+//	u8 len;
+//	va_list arg_ptr; //Define convert parameters variable
+//	va_start(arg_ptr, fmt); //Init variable
+//	len = vsnprintf(buffer, CMD_BUFFER_LEN+1, fmt, arg_ptr); //parameters list format to buffer
+//	while ((i <(u8) CMD_BUFFER_LEN) && (i <(u8) len) && (len > 0))
+//	{
+//		USART_SendData(USART5, (u8) buffer[i++]);
+//		while (USART_GetFlagStatus(USART5, USART_FLAG_TC) == RESET);
+//	}
+//	va_end(arg_ptr);
+//}
 
 // 串口中断服务函数
 void DEBUG_USART5_IRQHandler(void)
