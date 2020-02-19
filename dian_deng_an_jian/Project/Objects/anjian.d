@@ -2,7 +2,7 @@
 .\objects\anjian.o: ..\User\key\anjian.h
 .\objects\anjian.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\anjian.o: ..\Libraries\CMSIS\core_cm3.h
-.\objects\anjian.o: F:\keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\anjian.o: D:\Keil\keil_ruanjian\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\anjian.o: ..\Libraries\CMSIS\system_stm32f10x.h
 .\objects\anjian.o: ..\User\stm32f10x_conf.h
 .\objects\anjian.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h

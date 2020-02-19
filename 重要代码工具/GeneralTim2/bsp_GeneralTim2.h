@@ -16,22 +16,22 @@
 #define            GENERAL_TIM2_Prescaler         71
 
 
-//// TIM3 输出比较通道1
+//// TIM2 输出比较通道1
 //#define            GENERAL_TIM2_CH1_GPIO_CLK      RCC_APB2Periph_GPIOA
 //#define            GENERAL_TIM2_CH1_PORT          GPIOA
 //#define            GENERAL_TIM2_CH1_PIN           GPIO_Pin_0
 
-// TIM3 输出比较通道2
+// TIM2 输出比较通道2
 #define            GENERAL_TIM2_CH2_GPIO_CLK      RCC_APB2Periph_GPIOA
 #define            GENERAL_TIM2_CH2_PORT          GPIOA
 #define            GENERAL_TIM2_CH2_PIN           GPIO_Pin_1
 
-// TIM3 输出比较通道3
+// TIM2 输出比较通道3
 #define            GENERAL_TIM2_CH3_GPIO_CLK      RCC_APB2Periph_GPIOA
 #define            GENERAL_TIM2_CH3_PORT          GPIOA
 #define            GENERAL_TIM2_CH3_PIN           GPIO_Pin_2
 
-// TIM3 输出比较通道4
+// TIM2 输出比较通道4
 #define            GENERAL_TIM2_CH4_GPIO_CLK      RCC_APB2Periph_GPIOA
 #define            GENERAL_TIM2_CH4_PORT          GPIOA
 #define            GENERAL_TIM2_CH4_PIN           GPIO_Pin_3

@@ -23,22 +23,22 @@
 #define            GENERAL_TIM4_CLK               RCC_APB1Periph_TIM4
 #define            GENERAL_TIM4_Period            20000-1
 #define            GENERAL_TIM4_Prescaler         72-1
-// TIM3 输出比较通道1
+// TIM4 输出比较通道1
 #define            GENERAL_TIM4_CH1_GPIO_CLK      RCC_APB2Periph_GPIOB
 #define            GENERAL_TIM4_CH1_PORT          GPIOB
 #define            GENERAL_TIM4_CH1_PIN           GPIO_Pin_6
 
-// TIM3 输出比较通道2
+// TIM5 输出比较通道2
 #define            GENERAL_TIM4_CH2_GPIO_CLK      RCC_APB2Periph_GPIOB
 #define            GENERAL_TIM4_CH2_PORT          GPIOB
 #define            GENERAL_TIM4_CH2_PIN           GPIO_Pin_7
 
-// TIM3 输出比较通道3
+// TIM6 输出比较通道3
 #define            GENERAL_TIM4_CH3_GPIO_CLK      RCC_APB2Periph_GPIOB
 #define            GENERAL_TIM4_CH3_PORT          GPIOB
 #define            GENERAL_TIM4_CH3_PIN           GPIO_Pin_8
 
-// TIM3 输出比较通道4
+// TIM7 输出比较通道4
 #define            GENERAL_TIM4_CH4_GPIO_CLK      RCC_APB2Periph_GPIOB
 #define            GENERAL_TIM4_CH4_PORT          GPIOB
 #define            GENERAL_TIM4_CH4_PIN           GPIO_Pin_9
