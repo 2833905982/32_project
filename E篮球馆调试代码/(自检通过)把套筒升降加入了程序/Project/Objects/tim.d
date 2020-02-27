@@ -2,7 +2,7 @@
 .\objects\tim.o: ..\User\TIM\TIM.h
 .\objects\tim.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\tim.o: ..\Libraries\CMSIS\core_cm3.h
-.\objects\tim.o: F:\keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\tim.o: D:\Keil\keil_ruanjian\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\tim.o: ..\Libraries\CMSIS\system_stm32f10x.h
 .\objects\tim.o: ..\User\stm32f10x_conf.h
 .\objects\tim.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h

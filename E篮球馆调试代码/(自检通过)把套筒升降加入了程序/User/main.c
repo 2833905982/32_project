@@ -49,45 +49,48 @@ int main(void)
 //	S4leftright(1499,999);
  
  
-//	/* 打开套筒 */
-	TIM_SetCompare1(GENERAL_TIM5,1880);
-	stop();
-	delay_s(1);
-	qianjin_xunji();
-	
-	/* 让小车走到第一个检测区 */
-	qianjin_lukou2(2);
-	mangzou_guolukou();
-	
-	zhuaqu_huidu();
-	delay_s(1);	
-	
-	/* 关闭套筒 */
-	TIM_SetCompare1(GENERAL_TIM5,900);
-	delay_s(1);	
+////	/* 打开套筒 */
+//	TIM_SetCompare1(GENERAL_TIM5,1880);
+//	stop();
+//	delay_s(1);
+//	qianjin_xunji();
+//	
+//	/* 让小车走到第一个检测区 */
+//	qianjin_lukou2(2);
+//	mangzou_guolukou();
+//	
+//	zhuaqu_huidu();
+//	delay_s(1);	
+//	
+//	/* 关闭套筒 */
+//	TIM_SetCompare1(GENERAL_TIM5,900);
+//	delay_s(1);	
 
 	
 	while(1)
 	{	
-		renwu1();
-		stop();
-		delay_s(1);//任务一结束后车指向出发区
-		
-		R_zhuanwan1(1);
-		delay_s(1);
-		qianjin_lukou2(2);//到达h1
-		stop();
-		delay_s(1);
-		
-		renwu2_h();
-		renwu2_f();
-		
-		//（回到出发区）
-		qianjin_lukou2(3);
-		qianjin();
-		delay_ms(300);
-		
-		stop();
+					delay_ms(300);
+			printf("渣子你好啊！");
+			delay_ms(300);
+//		renwu1();
+//		stop();
+//		delay_s(1);//任务一结束后车指向出发区
+//		
+//		R_zhuanwan1(1);
+//		delay_s(1);
+//		qianjin_lukou2(2);//到达h1
+//		stop();
+//		delay_s(1);
+//		
+//		renwu2_h();
+//		renwu2_f();
+//		
+//		//（回到出发区）
+//		qianjin_lukou2(3);
+//		qianjin();
+//		delay_ms(300);
+//		
+//		stop();
 		
 		while(1);
 	}

@@ -1,7 +1,7 @@
 .\objects\main.o: ..\User\main.c
 .\objects\main.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\main.o: ..\Libraries\CMSIS\core_cm3.h
-.\objects\main.o: F:\keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\main.o: D:\Keil\keil_ruanjian\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\main.o: ..\Libraries\CMSIS\system_stm32f10x.h
 .\objects\main.o: ..\User\stm32f10x_conf.h
 .\objects\main.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h
@@ -31,7 +31,7 @@
 .\objects\main.o: ..\User\GeneralTim\bsp_GeneralTim.h
 .\objects\main.o: ..\User\Systick\systick.h
 .\objects\main.o: ..\User\USRAT\usart.h
-.\objects\main.o: F:\keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\main.o: D:\Keil\keil_ruanjian\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\main.o: ..\User\HuiDu\huidu.h
 .\objects\main.o: ..\User\gpio\bsp-gpio.h
 .\objects\main.o: ..\User\EXTI\exti.h

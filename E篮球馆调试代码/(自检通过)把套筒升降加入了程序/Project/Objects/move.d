@@ -2,7 +2,7 @@
 .\objects\move.o: ..\User\Move\move.h
 .\objects\move.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\move.o: ..\Libraries\CMSIS\core_cm3.h
-.\objects\move.o: F:\keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\move.o: D:\Keil\keil_ruanjian\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\move.o: ..\Libraries\CMSIS\system_stm32f10x.h
 .\objects\move.o: ..\User\stm32f10x_conf.h
 .\objects\move.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h
@@ -32,4 +32,4 @@
 .\objects\move.o: ..\User\HuiDu\huidu.h
 .\objects\move.o: ..\User\Systick\systick.h
 .\objects\move.o: ..\User\USRAT\usart.h
-.\objects\move.o: F:\keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\move.o: D:\Keil\keil_ruanjian\ARM\ARMCC\Bin\..\include\stdio.h

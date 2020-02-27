@@ -2,7 +2,7 @@
 .\objects\weidai.o: ..\User\weidai\weidai.h
 .\objects\weidai.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\weidai.o: ..\Libraries\CMSIS\core_cm3.h
-.\objects\weidai.o: F:\keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\weidai.o: D:\Keil\keil_ruanjian\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\weidai.o: ..\Libraries\CMSIS\system_stm32f10x.h
 .\objects\weidai.o: ..\User\stm32f10x_conf.h
 .\objects\weidai.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h

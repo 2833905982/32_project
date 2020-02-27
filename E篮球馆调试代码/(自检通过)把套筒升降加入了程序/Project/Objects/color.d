@@ -1,7 +1,7 @@
 .\objects\color.o: ..\User\color\color.c
 .\objects\color.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\color.o: ..\Libraries\CMSIS\core_cm3.h
-.\objects\color.o: F:\keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\color.o: D:\Keil\keil_ruanjian\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\color.o: ..\Libraries\CMSIS\system_stm32f10x.h
 .\objects\color.o: ..\User\stm32f10x_conf.h
 .\objects\color.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h
@@ -31,7 +31,7 @@
 .\objects\color.o: ..\User\color\color.h
 .\objects\color.o: ..\User\weidai\weidai.h
 .\objects\color.o: ..\User\USRAT\usart.h
-.\objects\color.o: F:\keil\ARM\ARMCC\Bin\..\include\stdio.h
+.\objects\color.o: D:\Keil\keil_ruanjian\ARM\ARMCC\Bin\..\include\stdio.h
 .\objects\color.o: ..\User\Systick\systick.h
 .\objects\color.o: ..\User\Move\move.h
 .\objects\color.o: ..\User\TIM\TIM.h

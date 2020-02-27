@@ -2,7 +2,7 @@
 .\objects\huidu.o: ..\User\HuiDu\huidu.h
 .\objects\huidu.o: ..\Libraries\CMSIS\stm32f10x.h
 .\objects\huidu.o: ..\Libraries\CMSIS\core_cm3.h
-.\objects\huidu.o: F:\keil\ARM\ARMCC\Bin\..\include\stdint.h
+.\objects\huidu.o: D:\Keil\keil_ruanjian\ARM\ARMCC\Bin\..\include\stdint.h
 .\objects\huidu.o: ..\Libraries\CMSIS\system_stm32f10x.h
 .\objects\huidu.o: ..\User\stm32f10x_conf.h
 .\objects\huidu.o: ..\Libraries\STM32F10x_StdPeriph_Driver\inc\stm32f10x_adc.h
